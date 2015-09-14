@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tcc</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.hbm2ddl.auto">validate</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.connection.password">1234</property>
+    
+    <mapping class="br.com.sgsg.domain.Usuario"/>
+    <mapping class="br.com.sgsg.domain.Administrador"/>
+    <mapping class="br.com.sgsg.domain.Aluno"/>
+    <mapping class="br.com.sgsg.domain.Palestrante"/>
+    <mapping class="br.com.sgsg.domain.Orientador"/>
+    <mapping class="br.com.sgsg.domain.Curso"/>
+    <mapping class="br.com.sgsg.domain.ModalidadesEstagio"/>
+    <mapping class="br.com.sgsg.domain.Seminario"/>
+    <mapping class="br.com.sgsg.domain.Palestra"/>
+    <mapping class="br.com.sgsg.domain.Estagio"/>
+    <mapping class="br.com.sgsg.domain.Empresa"/>
+    <mapping class="br.com.sgsg.domain.Questionario"/>
+    <mapping class="br.com.sgsg.domain.AlunoHasQuestionario"/>
+    <mapping class="br.com.sgsg.domain.EmpresaHasQuestionario"/>
+    <mapping class="br.com.sgsg.domain.Pergunta"/>
+    <mapping class="br.com.sgsg.domain.Resposta"/>
+    <mapping class="br.com.sgsg.domain.AlunoHasQuestionarioHasResposta"/>
+    <mapping class="br.com.sgsg.domain.AlunoHasQuestionarioHasRespostaPK"/>
+    <mapping class="br.com.sgsg.domain.AlunoHasQuestionarioPK"/>
+    <mapping class="br.com.sgsg.domain.EmpresaHasQuestionarioHasResposta"/>
+    <mapping class="br.com.sgsg.domain.EmpresaHasQuestionarioHasRespostaPK"/>
+    <mapping class="br.com.sgsg.domain.EmpresaHasQuestionarioPK"/>
+    
+    
+  </session-factory>
+</hibernate-configuration>

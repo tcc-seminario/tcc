@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/templates/modeloAdmin.xhtml">
+        <ui:define name="conteudo">
+            <h:form>
+                <p:toolbar>
+                    <f:facet name="left">
+                        <h:outputText value="Informe os Dados do Questionário" />
+                    </f:facet>
+                </p:toolbar>
+
+                <br/>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Nome do Questionário" />
+                    <p:inputText maxlength="30" size="20" />
+                    
+                    <h:outputText value="Curso do Questionário" />
+                    <p:selectOneMenu>
+                        <f:selectItem itemLabel="Informática" />
+                        <f:selectItem itemLabel="Produção de Moda" />
+                        <f:selectItem itemLabel="Eletromecânica" />
+                        
+                    </p:selectOneMenu>
+
+                </h:panelGrid><br/>
+
+                <br/>
+                <h:panelGrid columns="4">
+                    <p:button icon="ui-icon-circle-arrow-w" value="Voltar" 
+                              outcome="lista_questionario.xhtml?faces-redirect=true" />
+                    
+
+                    <p:button icon="ui-icon-circle-check" value="Próximo" 
+                              outcome="lista_pergunta_quest.xhtml?faces-redirect=true"/>
+                </h:panelGrid>
+
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</html>

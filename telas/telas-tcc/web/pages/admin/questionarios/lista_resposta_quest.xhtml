@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/templates/modeloAdmin.xhtml">
+        <ui:define name="conteudo">
+            <h:form>
+                <p:toolbar>
+                    <f:facet name="left">
+                        <h:outputText value="Lista de Respostas Cadastradas" />
+                    </f:facet>
+                </p:toolbar>
+
+                <p:dataTable emptyMessage="Nenhuma Resposta Cadastrada" rows="6" paginator="true">
+                    <f:facet name="footer">
+                        <p:button icon="ui-icon-circle-plus" value="Nova Resposta" 
+                                  outcome="cadastro_resposta_quest.xhtml?faces-redirect=true"/>
+                    </f:facet>
+                    <p:column headerText="Enunciado"></p:column>
+                    <p:column headerText="Pergunta Correspondente"></p:column>
+                    
+                    <p:column headerText="Opções">
+                        <p:button value="Excluir" 
+                                  outcome="cadastro_resposta_quest.xhtml?faces-redirect=true"/>
+                        <p:button value="Editar" 
+                                  outcome="cadastro_resposta_quest.xhtml?faces-redirect=true" />
+                    </p:column>
+
+                </p:dataTable>
+                
+                <br/>
+                <h:panelGrid columns="4">
+                    <p:button icon="ui-icon-circle-arrow-w" value="Voltar" 
+                              outcome="lista_pergunta_quest.xhtml?faces-redirect=true" />
+
+                <p:button icon="ui-icon-circle-check" value="Finalizar Cadastro do Questionário" 
+                              outcome="lista_questionario.xhtml?faces-redirect=true"/>
+                </h:panelGrid>
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
