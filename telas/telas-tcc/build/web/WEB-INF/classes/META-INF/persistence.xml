@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="telas-tccPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.com.sgsg.domain.EmpresaHasQuestionario</class>
+    <class>br.com.sgsg.domain.Resposta</class>
+    <class>br.com.sgsg.domain.Seminario</class>
+    <class>br.com.sgsg.domain.ModalidadesEstagio</class>
+    <class>br.com.sgsg.domain.EmpresaHasQuestionarioHasResposta</class>
+    <class>br.com.sgsg.domain.Empresa</class>
+    <class>br.com.sgsg.domain.Estagio</class>
+    <class>br.com.sgsg.domain.AlunoHasQuestionario</class>
+    <class>br.com.sgsg.domain.Palestrante</class>
+    <class>br.com.sgsg.domain.Curso</class>
+    <class>br.com.sgsg.domain.Pergunta</class>
+    <class>br.com.sgsg.domain.Palestra</class>
+    <class>br.com.sgsg.domain.Usuario</class>
+    <class>br.com.sgsg.domain.Administrador</class>
+    <class>br.com.sgsg.domain.Questionario</class>
+    <class>br.com.sgsg.domain.Aluno</class>
+    <class>br.com.sgsg.domain.Orientador</class>
+    <class>br.com.sgsg.domain.AlunoHasQuestionarioHasResposta</class>
+    <class>brcom.sgsg.domain.Seminario</class>
+    <class>brcom.sgsg.domain.Questionario</class>
+    <class>brcom.sgsg.domain.ModalidadesEstagio</class>
+    <class>brcom.sgsg.domain.EmpresaHasQuestionario</class>
+    <class>brcom.sgsg.domain.Aluno</class>
+    <class>brcom.sgsg.domain.Orientador</class>
+    <class>brcom.sgsg.domain.Administrador</class>
+    <class>brcom.sgsg.domain.Pergunta</class>
+    <class>brcom.sgsg.domain.Curso</class>
+    <class>brcom.sgsg.domain.Usuario</class>
+    <class>brcom.sgsg.domain.Estagio</class>
+    <class>brcom.sgsg.domain.Empresa</class>
+    <class>brcom.sgsg.domain.EmpresaHasQuestionarioHasResposta</class>
+    <class>brcom.sgsg.domain.Resposta</class>
+    <class>brcom.sgsg.domain.Palestra</class>
+    <class>brcom.sgsg.domain.AlunoHasQuestionario</class>
+    <class>brcom.sgsg.domain.Palestrante</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tcc?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>

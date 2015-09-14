@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/templates/modeloAdmin.xhtml">
+        <ui:define name="conteudo">
+            <h:form>
+                <p:toolbar>
+                    <f:facet name="left">
+                        <h:outputText value="Informe os Dados da Nova Votação" />
+                    </f:facet>
+                </p:toolbar>
+
+                <br/>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Selecione o Seminário correspondente à Votação"/>
+                    <p:selectOneMenu >
+                        <f:selectItem itemLabel="Seminário 01" itemValue="semi_1"/>
+                        <f:selectItem itemLabel="Seminário 02" itemValue="semi_2"/>
+                        <f:selectItem itemLabel="Seminário 03" itemValue="semi_3"/>
+                    </p:selectOneMenu>     
+                    
+                    <h:outputText value="Selecione os Paraninfos Para Participar Desta Votação"/>
+                    <p:selectCheckboxMenu label="Paraninfos" filter="true">
+                        <f:selectItem itemLabel="Paraninfo 01 - TI" itemValue="p1"/>
+                        <f:selectItem itemLabel="Paraninfo 02 - PM" itemValue="p2"/>
+                        <f:selectItem itemLabel="Paraninfo 03 - ELM" itemValue="p3"/>
+                        <f:selectItem itemLabel="Paraninfo 04 - MECA" itemValue="p4"/>
+                    </p:selectCheckboxMenu>
+                </h:panelGrid><br/>
+
+                <br/>
+                <h:panelGrid columns="4">
+                    <p:button icon="ui-icon-circle-arrow-w" value="Voltar" 
+                              outcome="lista_voto_paraninfo.xhtml?faces-redirect=true" />
+                    <p:commandButton icon="ui-icon-circle-plus" 
+                                     value="Novo Cadastro" />
+                    <p:commandButton icon="ui-icon-circle-close" 
+                                     value="Excluir"/>
+
+                    <p:commandButton icon="ui-icon-circle-check" 
+                                     value="Salvar Votação no Seminário"
+                                     action="/pages/admin/index_admin.xhtml?faces-redirect=true"/>
+                </h:panelGrid>
+
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</html>

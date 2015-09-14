@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/templates/modeloAdmin.xhtml">
+        <ui:define name="conteudo">
+            <h:form>
+                <p:toolbar>
+                    <f:facet name="left">
+                        <h:outputText value="Informe os Dados da Nova Pergunta" />
+                    </f:facet>
+                </p:toolbar>
+
+                <br/>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Enunciado da Pergunta" />
+                    <p:inputText maxlength="30" size="20" />
+
+                </h:panelGrid><br/>
+
+
+                <br/>
+                <h:panelGrid columns="4">
+                    <p:button icon="ui-icon-circle-arrow-w" value="Voltar" 
+                              outcome="lista_pergunta_quest.xhtml?faces-redirect=true" />
+                    <p:commandButton icon="ui-icon-circle-plus" value="Novo Cadastro" />
+                    <p:commandButton icon="ui-icon-circle-close" value="Excluir" 
+                                     actionListener="#{usuarioBean.deletar}" 
+                                     update=":mensagem_global_admin"/>
+
+                    <p:commandButton icon="ui-icon-circle-check" value="Salvar Pergunta" 
+                                     actionListener="#{usuarioBean.salvar}" 
+                                     update=":mensagem_global_admin"/>
+                </h:panelGrid>
+
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</html>
