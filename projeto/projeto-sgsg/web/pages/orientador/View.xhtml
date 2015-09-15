@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrientadorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrientadorLabel_idOrientador}"/>
+                    <h:outputText value="#{orientadorController.selected.idOrientador}" title="#{bundle.ViewOrientadorTitle_idOrientador}"/>
+                    <h:outputText value="#{bundle.ViewOrientadorLabel_cursosIdCurso}"/>
+                    <h:outputText value="#{orientadorController.selected.cursosIdCurso}" title="#{bundle.ViewOrientadorTitle_cursosIdCurso}"/>
+                    <h:outputText value="#{bundle.ViewOrientadorLabel_seminarioIdSeminario}"/>
+                    <h:outputText value="#{orientadorController.selected.seminarioIdSeminario}" title="#{bundle.ViewOrientadorTitle_seminarioIdSeminario}"/>
+                    <h:outputText value="#{bundle.ViewOrientadorLabel_usuarioIdUsuario}"/>
+                    <h:outputText value="#{orientadorController.selected.usuarioIdUsuario}" title="#{bundle.ViewOrientadorTitle_usuarioIdUsuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{orientadorController.destroyAndView}" value="#{bundle.ViewOrientadorDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewOrientadorEditLink}"/>
+                <br />
+                <h:commandLink action="#{orientadorController.prepareCreate}" value="#{bundle.ViewOrientadorCreateLink}" />
+                <br />
+                <h:commandLink action="#{orientadorController.prepareList}" value="#{bundle.ViewOrientadorShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOrientadorIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

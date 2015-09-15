@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEstagioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_idestagio}" for="idestagio" />
+                    <h:inputText id="idestagio" value="#{estagioController.selected.idestagio}" title="#{bundle.CreateEstagioTitle_idestagio}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_idestagio}"/>
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_cargaHoraria}" for="cargaHoraria" />
+                    <h:inputText id="cargaHoraria" value="#{estagioController.selected.cargaHoraria}" title="#{bundle.CreateEstagioTitle_cargaHoraria}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_cargaHoraria}"/>
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_dataIni}" for="dataIni" />
+                    <h:inputText id="dataIni" value="#{estagioController.selected.dataIni}" title="#{bundle.CreateEstagioTitle_dataIni}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_dataIni}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_dataFim}" for="dataFim" />
+                    <h:inputText id="dataFim" value="#{estagioController.selected.dataFim}" title="#{bundle.CreateEstagioTitle_dataFim}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_dataFim}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_remuneracao}" for="remuneracao" />
+                    <h:inputText id="remuneracao" value="#{estagioController.selected.remuneracao}" title="#{bundle.CreateEstagioTitle_remuneracao}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_remuneracao}"/>
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_alunoIdAluno}" for="alunoIdAluno" />
+                    <h:selectOneMenu id="alunoIdAluno" value="#{estagioController.selected.alunoIdAluno}" title="#{bundle.CreateEstagioTitle_alunoIdAluno}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_alunoIdAluno}">
+                        <f:selectItems value="#{alunoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_cursosIdCurso}" for="cursosIdCurso" />
+                    <h:selectOneMenu id="cursosIdCurso" value="#{estagioController.selected.cursosIdCurso}" title="#{bundle.CreateEstagioTitle_cursosIdCurso}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_cursosIdCurso}">
+                        <f:selectItems value="#{cursosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEstagioLabel_empresaIdEmpresa}" for="empresaIdEmpresa" />
+                    <h:selectOneMenu id="empresaIdEmpresa" value="#{estagioController.selected.empresaIdEmpresa}" title="#{bundle.CreateEstagioTitle_empresaIdEmpresa}" required="true" requiredMessage="#{bundle.CreateEstagioRequiredMessage_empresaIdEmpresa}">
+                        <f:selectItems value="#{empresaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{estagioController.create}" value="#{bundle.CreateEstagioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{estagioController.prepareList}" value="#{bundle.CreateEstagioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEstagioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

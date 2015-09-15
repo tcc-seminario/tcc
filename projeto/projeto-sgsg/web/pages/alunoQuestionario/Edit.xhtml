@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAlunoQuestionarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAlunoQuestionarioLabel_alunoQuestionarioPK_id}" for="alunoQuestionarioPK_id" />
+                    <h:inputText id="alunoQuestionarioPK_id" value="#{alunoQuestionarioController.selected.alunoQuestionarioPK.id}" title="#{bundle.EditAlunoQuestionarioTitle_alunoQuestionarioPK_id}" required="true" requiredMessage="#{bundle.EditAlunoQuestionarioRequiredMessage_alunoQuestionarioPK_id}"/>
+                    <h:outputLabel value="#{bundle.EditAlunoQuestionarioLabel_aluno}" for="aluno" />
+                    <h:selectOneMenu id="aluno" value="#{alunoQuestionarioController.selected.aluno}" title="#{bundle.EditAlunoQuestionarioTitle_aluno}" required="true" requiredMessage="#{bundle.EditAlunoQuestionarioRequiredMessage_aluno}">
+                        <f:selectItems value="#{alunoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAlunoQuestionarioLabel_questionario}" for="questionario" />
+                    <h:selectOneMenu id="questionario" value="#{alunoQuestionarioController.selected.questionario}" title="#{bundle.EditAlunoQuestionarioTitle_questionario}" required="true" requiredMessage="#{bundle.EditAlunoQuestionarioRequiredMessage_questionario}">
+                        <f:selectItems value="#{questionarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{alunoQuestionarioController.update}" value="#{bundle.EditAlunoQuestionarioSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAlunoQuestionarioViewLink}"/>
+                <br />
+                <h:commandLink action="#{alunoQuestionarioController.prepareList}" value="#{bundle.EditAlunoQuestionarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAlunoQuestionarioIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

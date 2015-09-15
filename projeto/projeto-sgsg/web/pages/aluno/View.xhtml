@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAlunoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAlunoLabel_idAluno}"/>
+                    <h:outputText value="#{alunoController.selected.idAluno}" title="#{bundle.ViewAlunoTitle_idAluno}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_rgAluno}"/>
+                    <h:outputText value="#{alunoController.selected.rgAluno}" title="#{bundle.ViewAlunoTitle_rgAluno}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_cpfAluno}"/>
+                    <h:outputText value="#{alunoController.selected.cpfAluno}" title="#{bundle.ViewAlunoTitle_cpfAluno}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_ruaEndereco}"/>
+                    <h:outputText value="#{alunoController.selected.ruaEndereco}" title="#{bundle.ViewAlunoTitle_ruaEndereco}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_bairro}"/>
+                    <h:outputText value="#{alunoController.selected.bairro}" title="#{bundle.ViewAlunoTitle_bairro}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_cidade}"/>
+                    <h:outputText value="#{alunoController.selected.cidade}" title="#{bundle.ViewAlunoTitle_cidade}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_uf}"/>
+                    <h:outputText value="#{alunoController.selected.uf}" title="#{bundle.ViewAlunoTitle_uf}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_cep}"/>
+                    <h:outputText value="#{alunoController.selected.cep}" title="#{bundle.ViewAlunoTitle_cep}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_turno}"/>
+                    <h:outputText value="#{alunoController.selected.turno}" title="#{bundle.ViewAlunoTitle_turno}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_statusEstagioAluno}"/>
+                    <h:outputText value="#{alunoController.selected.statusEstagioAluno}" title="#{bundle.ViewAlunoTitle_statusEstagioAluno}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_cursosIdCurso}"/>
+                    <h:outputText value="#{alunoController.selected.cursosIdCurso}" title="#{bundle.ViewAlunoTitle_cursosIdCurso}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_modalidadeEstagiosIdModalidade}"/>
+                    <h:outputText value="#{alunoController.selected.modalidadeEstagiosIdModalidade}" title="#{bundle.ViewAlunoTitle_modalidadeEstagiosIdModalidade}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_orientadorIdOrientador}"/>
+                    <h:outputText value="#{alunoController.selected.orientadorIdOrientador}" title="#{bundle.ViewAlunoTitle_orientadorIdOrientador}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_seminarioIdSeminario}"/>
+                    <h:outputText value="#{alunoController.selected.seminarioIdSeminario}" title="#{bundle.ViewAlunoTitle_seminarioIdSeminario}"/>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_usuarioIdUsuario}"/>
+                    <h:outputText value="#{alunoController.selected.usuarioIdUsuario}" title="#{bundle.ViewAlunoTitle_usuarioIdUsuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alunoController.destroyAndView}" value="#{bundle.ViewAlunoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAlunoEditLink}"/>
+                <br />
+                <h:commandLink action="#{alunoController.prepareCreate}" value="#{bundle.ViewAlunoCreateLink}" />
+                <br />
+                <h:commandLink action="#{alunoController.prepareList}" value="#{bundle.ViewAlunoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAlunoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

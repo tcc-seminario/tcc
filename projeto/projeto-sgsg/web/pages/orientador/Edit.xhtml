@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrientadorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrientadorLabel_idOrientador}" for="idOrientador" />
+                    <h:inputText id="idOrientador" value="#{orientadorController.selected.idOrientador}" title="#{bundle.EditOrientadorTitle_idOrientador}" required="true" requiredMessage="#{bundle.EditOrientadorRequiredMessage_idOrientador}"/>
+                    <h:outputLabel value="#{bundle.EditOrientadorLabel_cursosIdCurso}" for="cursosIdCurso" />
+                    <h:selectOneMenu id="cursosIdCurso" value="#{orientadorController.selected.cursosIdCurso}" title="#{bundle.EditOrientadorTitle_cursosIdCurso}" required="true" requiredMessage="#{bundle.EditOrientadorRequiredMessage_cursosIdCurso}">
+                        <f:selectItems value="#{cursosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOrientadorLabel_seminarioIdSeminario}" for="seminarioIdSeminario" />
+                    <h:selectOneMenu id="seminarioIdSeminario" value="#{orientadorController.selected.seminarioIdSeminario}" title="#{bundle.EditOrientadorTitle_seminarioIdSeminario}" >
+                        <f:selectItems value="#{seminarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOrientadorLabel_usuarioIdUsuario}" for="usuarioIdUsuario" />
+                    <h:selectOneMenu id="usuarioIdUsuario" value="#{orientadorController.selected.usuarioIdUsuario}" title="#{bundle.EditOrientadorTitle_usuarioIdUsuario}" required="true" requiredMessage="#{bundle.EditOrientadorRequiredMessage_usuarioIdUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{orientadorController.update}" value="#{bundle.EditOrientadorSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOrientadorViewLink}"/>
+                <br />
+                <h:commandLink action="#{orientadorController.prepareList}" value="#{bundle.EditOrientadorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOrientadorIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

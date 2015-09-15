@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEstagioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEstagioLabel_idestagio}"/>
+                    <h:outputText value="#{estagioController.selected.idestagio}" title="#{bundle.ViewEstagioTitle_idestagio}"/>
+                    <h:outputText value="#{bundle.ViewEstagioLabel_cargaHoraria}"/>
+                    <h:outputText value="#{estagioController.selected.cargaHoraria}" title="#{bundle.ViewEstagioTitle_cargaHoraria}"/>
+                    <h:outputText value="#{bundle.ViewEstagioLabel_dataIni}"/>
+                    <h:outputText value="#{estagioController.selected.dataIni}" title="#{bundle.ViewEstagioTitle_dataIni}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEstagioLabel_dataFim}"/>
+                    <h:outputText value="#{estagioController.selected.dataFim}" title="#{bundle.ViewEstagioTitle_dataFim}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEstagioLabel_remuneracao}"/>
+                    <h:outputText value="#{estagioController.selected.remuneracao}" title="#{bundle.ViewEstagioTitle_remuneracao}"/>
+                    <h:outputText value="#{bundle.ViewEstagioLabel_alunoIdAluno}"/>
+                    <h:outputText value="#{estagioController.selected.alunoIdAluno}" title="#{bundle.ViewEstagioTitle_alunoIdAluno}"/>
+                    <h:outputText value="#{bundle.ViewEstagioLabel_cursosIdCurso}"/>
+                    <h:outputText value="#{estagioController.selected.cursosIdCurso}" title="#{bundle.ViewEstagioTitle_cursosIdCurso}"/>
+                    <h:outputText value="#{bundle.ViewEstagioLabel_empresaIdEmpresa}"/>
+                    <h:outputText value="#{estagioController.selected.empresaIdEmpresa}" title="#{bundle.ViewEstagioTitle_empresaIdEmpresa}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{estagioController.destroyAndView}" value="#{bundle.ViewEstagioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEstagioEditLink}"/>
+                <br />
+                <h:commandLink action="#{estagioController.prepareCreate}" value="#{bundle.ViewEstagioCreateLink}" />
+                <br />
+                <h:commandLink action="#{estagioController.prepareList}" value="#{bundle.ViewEstagioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEstagioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

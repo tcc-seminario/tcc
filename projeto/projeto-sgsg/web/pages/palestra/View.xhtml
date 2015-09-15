@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPalestraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPalestraLabel_idPalestra}"/>
+                    <h:outputText value="#{palestraController.selected.idPalestra}" title="#{bundle.ViewPalestraTitle_idPalestra}"/>
+                    <h:outputText value="#{bundle.ViewPalestraLabel_nomePalestra}"/>
+                    <h:outputText value="#{palestraController.selected.nomePalestra}" title="#{bundle.ViewPalestraTitle_nomePalestra}"/>
+                    <h:outputText value="#{bundle.ViewPalestraLabel_dataHora}"/>
+                    <h:outputText value="#{palestraController.selected.dataHora}" title="#{bundle.ViewPalestraTitle_dataHora}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPalestraLabel_palestranteIdPalestrante}"/>
+                    <h:outputText value="#{palestraController.selected.palestranteIdPalestrante}" title="#{bundle.ViewPalestraTitle_palestranteIdPalestrante}"/>
+                    <h:outputText value="#{bundle.ViewPalestraLabel_seminarioIdSeminario}"/>
+                    <h:outputText value="#{palestraController.selected.seminarioIdSeminario}" title="#{bundle.ViewPalestraTitle_seminarioIdSeminario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{palestraController.destroyAndView}" value="#{bundle.ViewPalestraDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPalestraEditLink}"/>
+                <br />
+                <h:commandLink action="#{palestraController.prepareCreate}" value="#{bundle.ViewPalestraCreateLink}" />
+                <br />
+                <h:commandLink action="#{palestraController.prepareList}" value="#{bundle.ViewPalestraShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPalestraIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

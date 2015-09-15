@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEmpresaQuestionarioRespostaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEmpresaQuestionarioRespostaLabel_empresaQuestionarioRespostaPK_id}" for="empresaQuestionarioRespostaPK_id" />
+                    <h:inputText id="empresaQuestionarioRespostaPK_id" value="#{empresaQuestionarioRespostaController.selected.empresaQuestionarioRespostaPK.id}" title="#{bundle.EditEmpresaQuestionarioRespostaTitle_empresaQuestionarioRespostaPK_id}" required="true" requiredMessage="#{bundle.EditEmpresaQuestionarioRespostaRequiredMessage_empresaQuestionarioRespostaPK_id}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresaQuestionarioRespostaLabel_respostaAberta}" for="respostaAberta" />
+                    <h:inputText id="respostaAberta" value="#{empresaQuestionarioRespostaController.selected.respostaAberta}" title="#{bundle.EditEmpresaQuestionarioRespostaTitle_respostaAberta}" />
+                    <h:outputLabel value="#{bundle.EditEmpresaQuestionarioRespostaLabel_empresaQuestionario}" for="empresaQuestionario" />
+                    <h:selectOneMenu id="empresaQuestionario" value="#{empresaQuestionarioRespostaController.selected.empresaQuestionario}" title="#{bundle.EditEmpresaQuestionarioRespostaTitle_empresaQuestionario}" required="true" requiredMessage="#{bundle.EditEmpresaQuestionarioRespostaRequiredMessage_empresaQuestionario}">
+                        <f:selectItems value="#{empresaQuestionarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditEmpresaQuestionarioRespostaLabel_resposta}" for="resposta" />
+                    <h:selectOneMenu id="resposta" value="#{empresaQuestionarioRespostaController.selected.resposta}" title="#{bundle.EditEmpresaQuestionarioRespostaTitle_resposta}" required="true" requiredMessage="#{bundle.EditEmpresaQuestionarioRespostaRequiredMessage_resposta}">
+                        <f:selectItems value="#{respostaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{empresaQuestionarioRespostaController.update}" value="#{bundle.EditEmpresaQuestionarioRespostaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEmpresaQuestionarioRespostaViewLink}"/>
+                <br />
+                <h:commandLink action="#{empresaQuestionarioRespostaController.prepareList}" value="#{bundle.EditEmpresaQuestionarioRespostaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEmpresaQuestionarioRespostaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

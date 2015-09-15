@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAlunoQuestionarioRespostaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAlunoQuestionarioRespostaEmpty}" rendered="#{alunoQuestionarioRespostaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{alunoQuestionarioRespostaController.items.rowCount > 0}">
+                    <h:outputText value="#{alunoQuestionarioRespostaController.pagination.pageFirstItem + 1}..#{alunoQuestionarioRespostaController.pagination.pageLastItem + 1}/#{alunoQuestionarioRespostaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{alunoQuestionarioRespostaController.previous}" value="#{bundle.Previous} #{alunoQuestionarioRespostaController.pagination.pageSize}" rendered="#{alunoQuestionarioRespostaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{alunoQuestionarioRespostaController.next}" value="#{bundle.Next} #{alunoQuestionarioRespostaController.pagination.pageSize}" rendered="#{alunoQuestionarioRespostaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{alunoQuestionarioRespostaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoQuestionarioRespostaTitle_alunoQuestionarioRespostaPK_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alunoQuestionarioRespostaPK.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoQuestionarioRespostaTitle_respostaAberta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.respostaAberta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoQuestionarioRespostaTitle_alunoQuestionario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alunoQuestionario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoQuestionarioRespostaTitle_resposta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.resposta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{alunoQuestionarioRespostaController.prepareView}" value="#{bundle.ListAlunoQuestionarioRespostaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alunoQuestionarioRespostaController.prepareEdit}" value="#{bundle.ListAlunoQuestionarioRespostaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alunoQuestionarioRespostaController.destroy}" value="#{bundle.ListAlunoQuestionarioRespostaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{alunoQuestionarioRespostaController.prepareCreate}" value="#{bundle.ListAlunoQuestionarioRespostaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAlunoQuestionarioRespostaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

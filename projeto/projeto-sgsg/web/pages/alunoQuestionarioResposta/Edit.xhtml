@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAlunoQuestionarioRespostaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAlunoQuestionarioRespostaLabel_alunoQuestionarioRespostaPK_id}" for="alunoQuestionarioRespostaPK_id" />
+                    <h:inputText id="alunoQuestionarioRespostaPK_id" value="#{alunoQuestionarioRespostaController.selected.alunoQuestionarioRespostaPK.id}" title="#{bundle.EditAlunoQuestionarioRespostaTitle_alunoQuestionarioRespostaPK_id}" required="true" requiredMessage="#{bundle.EditAlunoQuestionarioRespostaRequiredMessage_alunoQuestionarioRespostaPK_id}"/>
+                    <h:outputLabel value="#{bundle.EditAlunoQuestionarioRespostaLabel_respostaAberta}" for="respostaAberta" />
+                    <h:inputText id="respostaAberta" value="#{alunoQuestionarioRespostaController.selected.respostaAberta}" title="#{bundle.EditAlunoQuestionarioRespostaTitle_respostaAberta}" />
+                    <h:outputLabel value="#{bundle.EditAlunoQuestionarioRespostaLabel_alunoQuestionario}" for="alunoQuestionario" />
+                    <h:selectOneMenu id="alunoQuestionario" value="#{alunoQuestionarioRespostaController.selected.alunoQuestionario}" title="#{bundle.EditAlunoQuestionarioRespostaTitle_alunoQuestionario}" required="true" requiredMessage="#{bundle.EditAlunoQuestionarioRespostaRequiredMessage_alunoQuestionario}">
+                        <f:selectItems value="#{alunoQuestionarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAlunoQuestionarioRespostaLabel_resposta}" for="resposta" />
+                    <h:selectOneMenu id="resposta" value="#{alunoQuestionarioRespostaController.selected.resposta}" title="#{bundle.EditAlunoQuestionarioRespostaTitle_resposta}" required="true" requiredMessage="#{bundle.EditAlunoQuestionarioRespostaRequiredMessage_resposta}">
+                        <f:selectItems value="#{respostaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{alunoQuestionarioRespostaController.update}" value="#{bundle.EditAlunoQuestionarioRespostaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAlunoQuestionarioRespostaViewLink}"/>
+                <br />
+                <h:commandLink action="#{alunoQuestionarioRespostaController.prepareList}" value="#{bundle.EditAlunoQuestionarioRespostaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAlunoQuestionarioRespostaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

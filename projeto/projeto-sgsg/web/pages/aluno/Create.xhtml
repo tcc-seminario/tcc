@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAlunoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_idAluno}" for="idAluno" />
+                    <h:inputText id="idAluno" value="#{alunoController.selected.idAluno}" title="#{bundle.CreateAlunoTitle_idAluno}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_idAluno}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_rgAluno}" for="rgAluno" />
+                    <h:inputText id="rgAluno" value="#{alunoController.selected.rgAluno}" title="#{bundle.CreateAlunoTitle_rgAluno}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_rgAluno}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_cpfAluno}" for="cpfAluno" />
+                    <h:inputText id="cpfAluno" value="#{alunoController.selected.cpfAluno}" title="#{bundle.CreateAlunoTitle_cpfAluno}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_cpfAluno}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_ruaEndereco}" for="ruaEndereco" />
+                    <h:inputText id="ruaEndereco" value="#{alunoController.selected.ruaEndereco}" title="#{bundle.CreateAlunoTitle_ruaEndereco}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_ruaEndereco}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_bairro}" for="bairro" />
+                    <h:inputText id="bairro" value="#{alunoController.selected.bairro}" title="#{bundle.CreateAlunoTitle_bairro}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_bairro}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_cidade}" for="cidade" />
+                    <h:inputText id="cidade" value="#{alunoController.selected.cidade}" title="#{bundle.CreateAlunoTitle_cidade}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_cidade}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_uf}" for="uf" />
+                    <h:inputText id="uf" value="#{alunoController.selected.uf}" title="#{bundle.CreateAlunoTitle_uf}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_uf}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_cep}" for="cep" />
+                    <h:inputText id="cep" value="#{alunoController.selected.cep}" title="#{bundle.CreateAlunoTitle_cep}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_cep}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_turno}" for="turno" />
+                    <h:inputText id="turno" value="#{alunoController.selected.turno}" title="#{bundle.CreateAlunoTitle_turno}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_turno}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_statusEstagioAluno}" for="statusEstagioAluno" />
+                    <h:inputText id="statusEstagioAluno" value="#{alunoController.selected.statusEstagioAluno}" title="#{bundle.CreateAlunoTitle_statusEstagioAluno}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_statusEstagioAluno}"/>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_cursosIdCurso}" for="cursosIdCurso" />
+                    <h:selectOneMenu id="cursosIdCurso" value="#{alunoController.selected.cursosIdCurso}" title="#{bundle.CreateAlunoTitle_cursosIdCurso}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_cursosIdCurso}">
+                        <f:selectItems value="#{cursosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_modalidadeEstagiosIdModalidade}" for="modalidadeEstagiosIdModalidade" />
+                    <h:selectOneMenu id="modalidadeEstagiosIdModalidade" value="#{alunoController.selected.modalidadeEstagiosIdModalidade}" title="#{bundle.CreateAlunoTitle_modalidadeEstagiosIdModalidade}" >
+                        <f:selectItems value="#{modalidadeEstagiosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_orientadorIdOrientador}" for="orientadorIdOrientador" />
+                    <h:selectOneMenu id="orientadorIdOrientador" value="#{alunoController.selected.orientadorIdOrientador}" title="#{bundle.CreateAlunoTitle_orientadorIdOrientador}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_orientadorIdOrientador}">
+                        <f:selectItems value="#{orientadorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_seminarioIdSeminario}" for="seminarioIdSeminario" />
+                    <h:selectOneMenu id="seminarioIdSeminario" value="#{alunoController.selected.seminarioIdSeminario}" title="#{bundle.CreateAlunoTitle_seminarioIdSeminario}" >
+                        <f:selectItems value="#{seminarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_usuarioIdUsuario}" for="usuarioIdUsuario" />
+                    <h:selectOneMenu id="usuarioIdUsuario" value="#{alunoController.selected.usuarioIdUsuario}" title="#{bundle.CreateAlunoTitle_usuarioIdUsuario}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_usuarioIdUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alunoController.create}" value="#{bundle.CreateAlunoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{alunoController.prepareList}" value="#{bundle.CreateAlunoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAlunoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

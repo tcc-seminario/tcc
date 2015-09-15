@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSeminarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSeminarioLabel_idSeminario}" for="idSeminario" />
+                    <h:inputText id="idSeminario" value="#{seminarioController.selected.idSeminario}" title="#{bundle.CreateSeminarioTitle_idSeminario}" required="true" requiredMessage="#{bundle.CreateSeminarioRequiredMessage_idSeminario}"/>
+                    <h:outputLabel value="#{bundle.CreateSeminarioLabel_dataIni}" for="dataIni" />
+                    <h:inputText id="dataIni" value="#{seminarioController.selected.dataIni}" title="#{bundle.CreateSeminarioTitle_dataIni}" required="true" requiredMessage="#{bundle.CreateSeminarioRequiredMessage_dataIni}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateSeminarioLabel_dataFim}" for="dataFim" />
+                    <h:inputText id="dataFim" value="#{seminarioController.selected.dataFim}" title="#{bundle.CreateSeminarioTitle_dataFim}" required="true" requiredMessage="#{bundle.CreateSeminarioRequiredMessage_dataFim}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{seminarioController.create}" value="#{bundle.CreateSeminarioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{seminarioController.prepareList}" value="#{bundle.CreateSeminarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSeminarioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
